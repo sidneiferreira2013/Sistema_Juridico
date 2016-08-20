@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../WEB-INF/layout/Template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+
+        <h:form >
+            <p:growl autoUpdate="true" />
+
+
+
+            <p:fieldset legend="Formulário de Cadastro" style="font-size: medium; color: #000000; margin-left: 30px; margin-right: 30px;" >
+
+                <div class="ui-fluid">
+
+                    <p:panelGrid columns="4" layout="grid" columnClasses="ui-grid-col-1, ui-grid-col-5, ui-grid-col-1, ui-grid-col-5"
+                                 styleClass="panelgrid-noborder">
+
+
+                        <p:outputLabel value="Nome" for="nome" />
+                        <p:inputText value="#{cadastroClienteBean.cliente.nome}" id="nome" />
+
+                        <h:outputLabel for="rg" value="RG:" />
+                        <p:inputMask id="rg" label="rg" mask="99.999.999-9"
+                                     value="#{cadastroClienteBean.cliente.rg}" size="12" >
+                        </p:inputMask>
+
+                        <h:outputLabel for="cpf" value="CPF:" />
+                        <p:inputMask id="cpf" label="cpf" mask="999.999.999-99"
+                                     value="#{cadastroClienteBean.cliente.documentoReceitaFedral}" size="14">
+                        </p:inputMask>
+
+                        <p:outputLabel for="datanascimento" value="Data.Nasc." />
+                        <p:inputMask id="datanascimento" mask="99/99/9999"  
+                                     size="9" >
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </p:inputMask>
+
+
+                        <p:outputLabel value="Estado Civil" for="estadoCivil" />
+                        <p:selectOneMenu id="estadoCivil" value="#{cadastroClienteBean.cliente.estadoCivil}"
+                                         >
+
+                            <f:selectItem itemLabel="Solteiro(a)" itemValue="Solteiro(a)" />
+                            <f:selectItem itemLabel="Casado(a)" itemValue="Casado(a)" />
+                            <f:selectItem itemLabel="Separado(a)" itemValue="Separado(a)" />
+                            <f:selectItem itemLabel="Divorciado(a)" itemValue="Divorciado(a)" />
+                            <f:selectItem itemLabel="Amasiado(a)" itemValue="Amasiado(a)" />
+
+                        </p:selectOneMenu>
+
+
+
+
+                        <p:outputLabel value="Profissão" for="profissao"/>
+                        <p:inputText id="profissao" value="#{cadastroClienteBean.cliente.profissao}" />
+
+
+                        <h:outputLabel for="nomepai" value="Nome do Pai:" />
+                        <p:inputText id="nomepai" label="nomepai"  value="#{cadastroClienteBean.cliente.nomePai}"
+                                     size="30" >
+                        </p:inputText>
+
+                        <h:outputLabel for="nomemae" value="Nome da Mãe:" />
+                        <p:inputText id="nomemae" label="nomepai"  value="#{cadastroClienteBean.cliente.nomeMae}"
+                                     size="30"  >
+                        </p:inputText>
+
+
+                    </p:panelGrid>
+
+                    <h2>Endereço</h2>
+
+                    <p:panelGrid columns="4" layout="grid" columnClasses="ui-grid-col-1, ui-grid-col-5, ui-grid-col-1, ui-grid-col-5"
+                                 styleClass="panelgrid-noborder" style="margin-top: 25px" >
+
+                        <p:outputLabel for="cep" value="CEP"  />
+                        <p:inputMask id="cep" mask="99999-999"  size="7"
+                                     value="#{cadastroClienteBean.cliente.cep}"       />
+
+
+                        <p:outputLabel value="Rua" for="rua" />
+                        <p:inputText  id="rua" size="25" value="#{cadastroClienteBean.cliente.logradouro}"/>
+
+                        <p:outputLabel value="N°" for="numero"  />
+                        <p:inputText id="numero" size="4" value="#{cadastroClienteBean.cliente.numero}"/>
+
+
+                        <p:outputLabel for="complemento" value="Complemento" />
+                        <p:inputText id="complemento" size="12" value="#{cadastroClienteBean.cliente.complemento}"/>
+
+
+
+                        <p:outputLabel value="Bairro" for="bairro" />
+                        <p:inputText id="bairro" size="18" value="#{cadastroClienteBean.cliente.bairro}" />
+
+
+                        <p:outputLabel value="Cidade" for="cidade"/>
+                        <p:inputText id="cidade" size="15" value="#{cadastroClienteBean.cliente.cidade}"/>
+
+
+                        <p:outputLabel value="Estado" for="estado"  />
+                        <p:inputText id="estado" size="2"  maxlength="2" value="#{cadastroClienteBean.cliente.uf}"/>
+
+                    </p:panelGrid>
+
+                    <h2>Contato:</h2>
+
+                    <p:panelGrid columns="4" layout="grid" columnClasses="ui-grid-col-1, ui-grid-col-5, ui-grid-col-1, ui-grid-col-5"
+                                 styleClass="panelgrid-noborder" style="margin-top: 25px" >
+
+
+                        <p:outputLabel value="Fone Fixo" for="fone_fixo"/>
+                        <p:inputText id="fone_fixo" />
+
+
+                        <p:outputLabel value="Fone Celular" for="fone_cell"/>
+                        <p:inputText id="fone_cell" />
+
+
+                        <p:outputLabel value="Fone Recado" for="fone_recado"/>
+                        <p:inputText id="fone_recado" />
+
+
+                        <h:outputLabel for="email" value="E-mail:"  />
+                        <p:inputText id="email" label="E-mail"  value="#{cadastroClienteBean.cliente.email}" size="30" placeholder="@">
+                        </p:inputText>
+
+                    </p:panelGrid>
+
+
+
+
+
+                    <p:commandButton   value="Salvar"  action="#{cadastroClienteBean.salvar}"
+
+                                       style="background: #99ffcc;" icon="ui-icon-disk"  />
+
+                    <p:commandButton value="Voltar" action="index.xhtml" ajax="false" style="background: #ff6666"
+                                     immediate="true" icon="ui-icon-home"/>
+
+
+
+                </div>
+
+            </p:fieldset>
+
+
+
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>

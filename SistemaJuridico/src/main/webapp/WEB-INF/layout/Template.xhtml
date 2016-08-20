@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+
+        <title>Sistema Jurídico</title>
+        <h:outputStylesheet library="css" name="sistema.css" />
+         <h:outputScript library="js" name="jquery.maskMoney.js" />
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+            <ui:insert name="top">
+
+                <header>
+                    <div style="float: left">
+
+                        <span>
+                            SFGomes
+                        </span>
+                    </div>
+
+
+                    <div style="float: right; margin-right: 110px">
+
+                        <span style="float: left;height: 30px; line-height: 30px; margin-right: 60px">
+                            Olá usuário!
+                        </span>
+
+                        <h:form style="display: inline-block">
+                            <p:menubar  styleClass="menu-sistema">
+                                <p:submenu label="Cadastros" icon="ui-icon-contact">
+                                    <p:submenu label="Cliente">
+                                        <p:menuitem value="Pessoa Fisica" outcome="/cadastro/cadastroCliente.xhtml"  />
+                                        <p:menuitem value="Pessoa Jurídica" />
+                                    </p:submenu>
+                                    <p:separator />
+                                    <p:menuitem value="Categorias" />
+                                    <p:menuitem value="Produtos" />
+                                </p:submenu>
+
+                                <p:submenu label="Pedidos">
+                                    <p:menuitem value="Novo pedido" />
+                                    <p:menuitem value="Pesquisa"  />
+                                </p:submenu>
+
+
+                                <p:menuitem value="Sair" icon="ui-icon-close"/>
+                            </p:menubar>
+
+                        </h:form>
+                    </div>
+                    <div style="clear: both"></div>
+
+                </header>
+
+
+
+
+            </ui:insert>
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">
+
+            </ui:insert>
+        </div>
+
+        <div id="bottom">
+            <ui:insert name="bottom">Copyright © 2016 Todos os direitos reservados. SFG Consultoria em Informática</ui:insert>
+        </div>
+
+    </h:body>
+
+</html>
